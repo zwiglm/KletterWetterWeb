@@ -1,0 +1,319 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="KwEfModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="arduBase">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Created" Type="smalldatetime" Nullable="false" />
+          <Property Name="Temp" Type="decimal" Precision="9" Scale="5" Nullable="false" />
+          <Property Name="PwrWarn" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblCountry">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="active" Type="smallint" Nullable="false" />
+          <Property Name="label" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="shortDescription" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="comment" Type="ntext" />
+        </EntityType>
+        <EntityType Name="tblElectronMeta">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="coreid" Type="nvarchar" MaxLength="32" Nullable="false" />
+          <Property Name="active" Type="smallint" Nullable="false" />
+          <Property Name="predicament" Type="int" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="lat" Type="decimal" Precision="9" Scale="5" />
+          <Property Name="lon" Type="decimal" Precision="9" Scale="5" />
+          <Property Name="altitude" Type="decimal" Precision="9" Scale="5" />
+        </EntityType>
+        <EntityType Name="tblLabel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="active" Type="smallint" Nullable="false" />
+          <Property Name="type" Type="smallint" Nullable="false" />
+          <Property Name="labelId" Type="int" Nullable="false" />
+          <Property Name="langFlags" Type="smallint" Nullable="false" />
+          <Property Name="term" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="comment" Type="text" />
+        </EntityType>
+        <EntityType Name="tblMountainRegionn">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="active" Type="smallint" Nullable="false" />
+          <Property Name="label" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="shortDescription" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="comment" Type="ntext" />
+        </EntityType>
+        <EntityType Name="tblPredicament">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="active" Type="smallint" Nullable="false" />
+          <Property Name="type" Type="smallint" Nullable="false" />
+          <Property Name="label" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="shortDescription" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="comment" Type="ntext" />
+        </EntityType>
+        <EntityType Name="tblWeather">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="event" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="coreid" Type="nvarchar" MaxLength="32" />
+          <Property Name="publishedAt" Type="smalldatetime" Nullable="false" />
+          <Property Name="prtclUserid" Type="nvarchar" MaxLength="32" />
+          <Property Name="prtclFwVersion" Type="smallint" />
+          <Property Name="temperature" Type="decimal" Precision="9" Scale="5" Nullable="false" />
+          <Property Name="humidity" Type="decimal" Precision="9" Scale="5" Nullable="false" />
+          <Property Name="pressure" Type="decimal" Precision="9" Scale="5" Nullable="false" />
+          <Property Name="rainMM" Type="decimal" Precision="9" Scale="5" Nullable="false" />
+          <Property Name="windKPH" Type="decimal" Precision="9" Scale="5" Nullable="false" />
+          <Property Name="gustKPH" Type="decimal" Precision="9" Scale="5" Nullable="false" />
+          <Property Name="windDirection" Type="decimal" Precision="9" Scale="5" Nullable="false" />
+          <Property Name="powerStatus" Type="decimal" Precision="9" Scale="5" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="KwEfModelStoreContainer">
+          <EntitySet Name="arduBase" EntityType="Self.arduBase" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCountry" EntityType="Self.tblCountry" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblElectronMeta" EntityType="Self.tblElectronMeta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblLabel" EntityType="Self.tblLabel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblMountainRegionn" EntityType="Self.tblMountainRegionn" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPredicament" EntityType="Self.tblPredicament" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblWeather" EntityType="Self.tblWeather" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="KwEfModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="arduBase">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Created" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Temp" Type="Decimal" Precision="9" Scale="5" Nullable="false" />
+          <Property Name="PwrWarn" Type="Int16" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblCountry">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="active" Type="Int16" Nullable="false" />
+          <Property Name="label" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="shortDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblElectronMeta">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="coreid" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="active" Type="Int16" Nullable="false" />
+          <Property Name="predicament" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="lat" Type="Decimal" Precision="9" Scale="5" />
+          <Property Name="lon" Type="Decimal" Precision="9" Scale="5" />
+          <Property Name="altitude" Type="Decimal" Precision="9" Scale="5" />
+        </EntityType>
+        <EntityType Name="tblLabel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="active" Type="Int16" Nullable="false" />
+          <Property Name="type" Type="Int16" Nullable="false" />
+          <Property Name="labelId" Type="Int32" Nullable="false" />
+          <Property Name="langFlags" Type="Int16" Nullable="false" />
+          <Property Name="term" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tblMountainRegionn">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="active" Type="Int16" Nullable="false" />
+          <Property Name="label" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="shortDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblPredicament">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="active" Type="Int16" Nullable="false" />
+          <Property Name="type" Type="Int16" Nullable="false" />
+          <Property Name="label" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="shortDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblWeather">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="event" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="coreid" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="publishedAt" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="prtclUserid" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="prtclFwVersion" Type="Int16" />
+          <Property Name="temperature" Type="Decimal" Precision="9" Scale="5" Nullable="false" />
+          <Property Name="humidity" Type="Decimal" Precision="9" Scale="5" Nullable="false" />
+          <Property Name="pressure" Type="Decimal" Precision="9" Scale="5" Nullable="false" />
+          <Property Name="rainMM" Type="Decimal" Precision="9" Scale="5" Nullable="false" />
+          <Property Name="windKPH" Type="Decimal" Precision="9" Scale="5" Nullable="false" />
+          <Property Name="gustKPH" Type="Decimal" Precision="9" Scale="5" Nullable="false" />
+          <Property Name="windDirection" Type="Decimal" Precision="9" Scale="5" Nullable="false" />
+          <Property Name="powerStatus" Type="Decimal" Precision="9" Scale="5" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="arduBase" EntityType="Self.arduBase" />
+          <EntitySet Name="tblCountry" EntityType="Self.tblCountry" />
+          <EntitySet Name="tblElectronMeta" EntityType="Self.tblElectronMeta" />
+          <EntitySet Name="tblLabel" EntityType="Self.tblLabel" />
+          <EntitySet Name="tblMountainRegionn" EntityType="Self.tblMountainRegionn" />
+          <EntitySet Name="tblPredicament" EntityType="Self.tblPredicament" />
+          <EntitySet Name="tblWeather" EntityType="Self.tblWeather" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="KwEfModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="arduBase">
+            <EntityTypeMapping TypeName="KwEfModel.arduBase">
+              <MappingFragment StoreEntitySet="arduBase">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="Temp" ColumnName="Temp" />
+                <ScalarProperty Name="PwrWarn" ColumnName="PwrWarn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCountry">
+            <EntityTypeMapping TypeName="KwEfModel.tblCountry">
+              <MappingFragment StoreEntitySet="tblCountry">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="label" ColumnName="label" />
+                <ScalarProperty Name="shortDescription" ColumnName="shortDescription" />
+                <ScalarProperty Name="comment" ColumnName="comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblElectronMeta">
+            <EntityTypeMapping TypeName="KwEfModel.tblElectronMeta">
+              <MappingFragment StoreEntitySet="tblElectronMeta">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="coreid" ColumnName="coreid" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="predicament" ColumnName="predicament" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="lat" ColumnName="lat" />
+                <ScalarProperty Name="lon" ColumnName="lon" />
+                <ScalarProperty Name="altitude" ColumnName="altitude" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblLabel">
+            <EntityTypeMapping TypeName="KwEfModel.tblLabel">
+              <MappingFragment StoreEntitySet="tblLabel">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="labelId" ColumnName="labelId" />
+                <ScalarProperty Name="langFlags" ColumnName="langFlags" />
+                <ScalarProperty Name="term" ColumnName="term" />
+                <ScalarProperty Name="comment" ColumnName="comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblMountainRegionn">
+            <EntityTypeMapping TypeName="KwEfModel.tblMountainRegionn">
+              <MappingFragment StoreEntitySet="tblMountainRegionn">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="label" ColumnName="label" />
+                <ScalarProperty Name="shortDescription" ColumnName="shortDescription" />
+                <ScalarProperty Name="comment" ColumnName="comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPredicament">
+            <EntityTypeMapping TypeName="KwEfModel.tblPredicament">
+              <MappingFragment StoreEntitySet="tblPredicament">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="label" ColumnName="label" />
+                <ScalarProperty Name="shortDescription" ColumnName="shortDescription" />
+                <ScalarProperty Name="comment" ColumnName="comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblWeather">
+            <EntityTypeMapping TypeName="KwEfModel.tblWeather">
+              <MappingFragment StoreEntitySet="tblWeather">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="event" ColumnName="event" />
+                <ScalarProperty Name="coreid" ColumnName="coreid" />
+                <ScalarProperty Name="publishedAt" ColumnName="publishedAt" />
+                <ScalarProperty Name="prtclUserid" ColumnName="prtclUserid" />
+                <ScalarProperty Name="prtclFwVersion" ColumnName="prtclFwVersion" />
+                <ScalarProperty Name="temperature" ColumnName="temperature" />
+                <ScalarProperty Name="humidity" ColumnName="humidity" />
+                <ScalarProperty Name="pressure" ColumnName="pressure" />
+                <ScalarProperty Name="rainMM" ColumnName="rainMM" />
+                <ScalarProperty Name="windKPH" ColumnName="windKPH" />
+                <ScalarProperty Name="gustKPH" ColumnName="gustKPH" />
+                <ScalarProperty Name="windDirection" ColumnName="windDirection" />
+                <ScalarProperty Name="powerStatus" ColumnName="powerStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

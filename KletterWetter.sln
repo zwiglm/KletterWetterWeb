@@ -5,6 +5,12 @@ VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KletterWetter", "KletterWetter\KletterWetter.csproj", "{7009D1C4-BF57-4F17-85FD-EBB702569A37}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessSQL", "DataAccessSQL\DataAccessSQL.csproj", "{5F090798-8E82-4524-958D-32F5ECAC00E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppInterfaces", "AppInterfaces\AppInterfaces.csproj", "{74AD0ED4-BF89-4B31-B3E1-D0DF813D169A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessEF", "DataAccessEF\DataAccessEF.csproj", "{6A476842-4BAA-4111-8C3D-6B9D4AC972F5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,6 +24,24 @@ Global
 		{7009D1C4-BF57-4F17-85FD-EBB702569A37}.MaZ|Any CPU.Build.0 = MaZ|Any CPU
 		{7009D1C4-BF57-4F17-85FD-EBB702569A37}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7009D1C4-BF57-4F17-85FD-EBB702569A37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F090798-8E82-4524-958D-32F5ECAC00E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F090798-8E82-4524-958D-32F5ECAC00E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F090798-8E82-4524-958D-32F5ECAC00E4}.MaZ|Any CPU.ActiveCfg = Release|Any CPU
+		{5F090798-8E82-4524-958D-32F5ECAC00E4}.MaZ|Any CPU.Build.0 = Release|Any CPU
+		{5F090798-8E82-4524-958D-32F5ECAC00E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F090798-8E82-4524-958D-32F5ECAC00E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74AD0ED4-BF89-4B31-B3E1-D0DF813D169A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74AD0ED4-BF89-4B31-B3E1-D0DF813D169A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74AD0ED4-BF89-4B31-B3E1-D0DF813D169A}.MaZ|Any CPU.ActiveCfg = Release|Any CPU
+		{74AD0ED4-BF89-4B31-B3E1-D0DF813D169A}.MaZ|Any CPU.Build.0 = Release|Any CPU
+		{74AD0ED4-BF89-4B31-B3E1-D0DF813D169A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74AD0ED4-BF89-4B31-B3E1-D0DF813D169A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A476842-4BAA-4111-8C3D-6B9D4AC972F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A476842-4BAA-4111-8C3D-6B9D4AC972F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A476842-4BAA-4111-8C3D-6B9D4AC972F5}.MaZ|Any CPU.ActiveCfg = Release|Any CPU
+		{6A476842-4BAA-4111-8C3D-6B9D4AC972F5}.MaZ|Any CPU.Build.0 = Release|Any CPU
+		{6A476842-4BAA-4111-8C3D-6B9D4AC972F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A476842-4BAA-4111-8C3D-6B9D4AC972F5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
