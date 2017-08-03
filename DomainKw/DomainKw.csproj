@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{74AD0ED4-BF89-4B31-B3E1-D0DF813D169A}</ProjectGuid>
+    <ProjectGuid>{9C0EAB38-96C1-459A-8637-083778835FA1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AppInterfaces</RootNamespace>
-    <AssemblyName>AppInterfaces</AssemblyName>
+    <RootNamespace>DomainKw</RootNamespace>
+    <AssemblyName>DomainKw</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,15 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Base\IApplicationConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReadAccess\IWeatherRA.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DomainKw\DomainKw.csproj">
-      <Project>{9c0eab38-96c1-459a-8637-083778835fa1}</Project>
-      <Name>DomainKw</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

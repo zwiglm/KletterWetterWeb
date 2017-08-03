@@ -121,6 +121,10 @@
       <Project>{74ad0ed4-bf89-4b31-b3e1-d0df813d169a}</Project>
       <Name>AppInterfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DomainKw\DomainKw.csproj">
+      <Project>{9c0eab38-96c1-459a-8637-083778835fa1}</Project>
+      <Name>DomainKw</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

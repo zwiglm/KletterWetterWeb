@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppInterfaces", "AppInterfa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessEF", "DataAccessEF\DataAccessEF.csproj", "{6A476842-4BAA-4111-8C3D-6B9D4AC972F5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainKw", "DomainKw\DomainKw.csproj", "{9C0EAB38-96C1-459A-8637-083778835FA1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +44,12 @@ Global
 		{6A476842-4BAA-4111-8C3D-6B9D4AC972F5}.MaZ|Any CPU.Build.0 = Release|Any CPU
 		{6A476842-4BAA-4111-8C3D-6B9D4AC972F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A476842-4BAA-4111-8C3D-6B9D4AC972F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C0EAB38-96C1-459A-8637-083778835FA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C0EAB38-96C1-459A-8637-083778835FA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C0EAB38-96C1-459A-8637-083778835FA1}.MaZ|Any CPU.ActiveCfg = Release|Any CPU
+		{9C0EAB38-96C1-459A-8637-083778835FA1}.MaZ|Any CPU.Build.0 = Release|Any CPU
+		{9C0EAB38-96C1-459A-8637-083778835FA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C0EAB38-96C1-459A-8637-083778835FA1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

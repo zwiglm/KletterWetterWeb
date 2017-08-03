@@ -848,6 +848,10 @@
       <Project>{5f090798-8e82-4524-958d-32f5ecac00e4}</Project>
       <Name>DataAccessSQL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DomainKw\DomainKw.csproj">
+      <Project>{9c0eab38-96c1-459a-8637-083778835fa1}</Project>
+      <Name>DomainKw</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
