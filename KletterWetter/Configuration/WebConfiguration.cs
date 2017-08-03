@@ -7,7 +7,7 @@ using AppInterfaces.Base;
 
 namespace KletterWetter.Configuration
 {
-    public class WebConfiguration : IAppConfiguration
+    public class WebConfiguration : IApplicationConfiguration
     {
         public string MainSqlConnectionString
         {

@@ -17,6 +17,7 @@
 
 namespace KletterWetter.DependencyResolution {
     using AppInterfaces.Base;
+    using AppInterfaces.ReadAccess;
     using KletterWetter.Configuration;
     using StructureMap.Configuration.DSL;
     using StructureMap.Graph;
@@ -33,8 +34,12 @@ namespace KletterWetter.DependencyResolution {
                 });
 
             // Configuration
-            //For<IDatabaseConfiguration>().Use<WebConfiguration>();
-            For<IAppConfiguration>().Use<WebConfiguration>();
+            For<IApplicationConfiguration>().Use<WebConfiguration>();
+
+            /*
+             * EntityFramework Read stores
+             */
+            For<IWeatherRA>().Use<DataAccessEF.ReadAccess.WeatherRA>();
         }
 
         #endregion

@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AppInterfaces.Base
+namespace AppInterfaces.ReadAccess
 {
-    public interface IAppConfiguration
+    public interface IWeatherRA
     {
-        string MainSqlConnectionString { get; }
     }
 }
