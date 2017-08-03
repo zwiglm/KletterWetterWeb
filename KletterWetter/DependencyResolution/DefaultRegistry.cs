@@ -16,6 +16,8 @@
 // --------------------------------------------------------------------------------------------------------------------
 
 namespace KletterWetter.DependencyResolution {
+    using AppInterfaces.Base;
+    using KletterWetter.Configuration;
     using StructureMap.Configuration.DSL;
     using StructureMap.Graph;
 	
@@ -30,10 +32,9 @@ namespace KletterWetter.DependencyResolution {
 					scan.With(new ControllerConvention());
                 });
 
-            //For<IExample>().Use<Example>();
             // Configuration
             //For<IDatabaseConfiguration>().Use<WebConfiguration>();
-            //For<IApplicationConfiguration>().Use<WebConfiguration>();
+            For<IAppConfiguration>().Use<WebConfiguration>();
         }
 
         #endregion

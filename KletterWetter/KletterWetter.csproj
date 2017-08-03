@@ -235,6 +235,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\StructuremapMvc.cs" />
+    <Compile Include="Configuration\WebConfiguration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -838,6 +839,10 @@
     <ProjectReference Include="..\AppInterfaces\AppInterfaces.csproj">
       <Project>{74ad0ed4-bf89-4b31-b3e1-d0df813d169a}</Project>
       <Name>AppInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataAccessEF\DataAccessEF.csproj">
+      <Project>{6a476842-4baa-4111-8c3d-6b9d4ac972f5}</Project>
+      <Name>DataAccessEF</Name>
     </ProjectReference>
     <ProjectReference Include="..\DataAccessSQL\DataAccessSQL.csproj">
       <Project>{5f090798-8e82-4524-958d-32f5ecac00e4}</Project>

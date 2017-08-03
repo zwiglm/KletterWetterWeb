@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccessEF
+namespace AppInterfaces.Base
 {
-    public class Class1
+    public interface IAppConfiguration
     {
+        string MainSqlConnectionString { get; }
     }
 }

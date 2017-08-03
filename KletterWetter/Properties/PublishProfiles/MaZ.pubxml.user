@@ -16,16 +16,22 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/18/2017 19:03:45</publishTime>
     </File>
     <File Include="bin/AppInterfaces.dll">
-      <publishTime>08/03/2017 01:39:58</publishTime>
+      <publishTime>08/03/2017 02:49:53</publishTime>
     </File>
     <File Include="bin/AppInterfaces.pdb">
-      <publishTime>08/03/2017 01:39:58</publishTime>
+      <publishTime>08/03/2017 02:49:53</publishTime>
+    </File>
+    <File Include="bin/DataAccessEF.dll">
+      <publishTime>08/03/2017 02:52:36</publishTime>
+    </File>
+    <File Include="bin/DataAccessEF.pdb">
+      <publishTime>08/03/2017 02:52:35</publishTime>
     </File>
     <File Include="bin/DataAccessSQL.dll">
-      <publishTime>08/03/2017 01:39:58</publishTime>
+      <publishTime>08/03/2017 02:52:35</publishTime>
     </File>
     <File Include="bin/DataAccessSQL.pdb">
-      <publishTime>08/03/2017 01:39:58</publishTime>
+      <publishTime>08/03/2017 02:52:35</publishTime>
     </File>
     <File Include="bin/de/EntityFramework.resources.dll">
       <publishTime>07/18/2017 00:13:08</publishTime>
@@ -91,10 +97,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/18/2017 00:13:05</publishTime>
     </File>
     <File Include="bin/KletterWetter.dll">
-      <publishTime>08/03/2017 02:37:01</publishTime>
+      <publishTime>08/03/2017 02:52:36</publishTime>
     </File>
     <File Include="bin/KletterWetter.pdb">
-      <publishTime>08/03/2017 02:37:01</publishTime>
+      <publishTime>08/03/2017 02:52:36</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.Identity.Core.dll">
       <publishTime>07/18/2017 00:13:07</publishTime>
