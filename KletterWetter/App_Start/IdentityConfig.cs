@@ -20,6 +20,34 @@ namespace KletterWetter
         {
             // Hier den E-Mail-Dienst einfügen, um eine E-Mail-Nachricht zu senden.
             return Task.FromResult(0);
+
+            // Credentials:
+            //var credentialUserName = "19442mail3";
+            //var sentFrom = "noreply@zwigl.info";
+            //var pwd = "Pn09"; //fcjIwthaf // P..!?
+
+            //// Configure the client:
+            //System.Net.Mail.SmtpClient client = new System.Net.Mail.SmtpClient("smtp.easyname.com");
+
+            //client.Port = 465;
+            //client.DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network;
+            //client.UseDefaultCredentials = false;
+
+            //// Create the credentials:
+            //System.Net.NetworkCredential credentials = new System.Net.NetworkCredential(credentialUserName, pwd);
+
+            //client.EnableSsl = true;
+            //client.Credentials = credentials;
+
+            //// Create the message:
+            //var mail =
+            //    new System.Net.Mail.MailMessage(sentFrom, message.Destination);
+
+            //mail.Subject = message.Subject;
+            //mail.Body = message.Body;
+
+            //// Send:
+            //return client.SendMailAsync(mail);
         }
     }
 
