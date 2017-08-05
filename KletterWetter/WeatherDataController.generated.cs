@@ -28,9 +28,6 @@ namespace KletterWetter.Controllers
     public partial class WeatherDataController
     {
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public WeatherDataController() { }
-
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         protected WeatherDataController(Dummy d) { }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -76,12 +73,14 @@ namespace KletterWetter.Controllers
         public class ActionNamesClass
         {
             public readonly string TableData = "TableData";
+            public readonly string TableDataGrid = "TableDataGrid";
         }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public class ActionNameConstants
         {
             public const string TableData = "TableData";
+            public const string TableDataGrid = "TableDataGrid";
         }
 
 
@@ -95,8 +94,12 @@ namespace KletterWetter.Controllers
             public _ViewNamesClass ViewNames { get { return s_ViewNames; } }
             public class _ViewNamesClass
             {
+                public readonly string _TdHeaderPartial = "_TdHeaderPartial";
+                public readonly string _TdTablePartial = "_TdTablePartial";
                 public readonly string TableData = "TableData";
             }
+            public readonly string _TdHeaderPartial = "~/Views/WeatherData/_TdHeaderPartial.cshtml";
+            public readonly string _TdTablePartial = "~/Views/WeatherData/_TdTablePartial.cshtml";
             public readonly string TableData = "~/Views/WeatherData/TableData.cshtml";
         }
     }
@@ -114,6 +117,17 @@ namespace KletterWetter.Controllers
         {
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.TableData);
             TableDataOverride(callInfo);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void TableDataGridOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult TableDataGrid()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.TableDataGrid);
+            TableDataGridOverride(callInfo);
             return callInfo;
         }
 

@@ -46,6 +46,8 @@
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/Scripts/jsrender.min.js")
     @Scripts.Render("~/Scripts/ej/web/ej.web.all.min.js")
+    @*@Scripts.Render(Links.Scripts.ej.common.ej_unobtrusive_min_js)*@
+
     @RenderSection("scripts", required: false)
     @Html.EJ().ScriptManager()
 </body>

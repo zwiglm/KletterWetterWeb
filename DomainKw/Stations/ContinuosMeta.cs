@@ -9,7 +9,7 @@ namespace DomainKw.Stations
     public class ContinuosMeta
     {
         public System.DateTime PublishedAd { get; set; }
-        public short ParticleFirmware { get; set; }
-        public decimal powerStatus { get; set; }
+        public short? ParticleFirmware { get; set; }
+        public decimal PowerStatus { get; set; }
     }
 }

@@ -1,1 +1,26 @@
-﻿<p>Use this area to provide additional information.</p>
+﻿@model KletterWetter.Models.TableStationData
+@using DomainKw.Stations
+
+<div id="WeatherTableSection">
+    @(Html.EJ().Grid<Weather>("WeatherDataTableId")
+
+    .Datasource(Model.WeatherRows)
+
+    .IsResponsive(true)
+    .EnableResponsiveRow(true)
+    .AllowPaging()
+
+    .Columns(col =>
+    {
+        col.Field(w => w.PublishedAt).HeaderText("Datum").Width(100).Add();
+        col.Field(w => w.Temperature).HeaderText("Temperatur").Width(45).TextAlign(TextAlign.Right).Add();
+        col.Field(w => w.Humidity).HeaderText("Rel. Feuchtigkeit").Width(45).TextAlign(TextAlign.Right).Add();
+        col.Field(w => w.PressureKPA).HeaderText("Druck [kPa]").Width(45).TextAlign(TextAlign.Right).Add();
+        col.Field(w => w.RainMM).HeaderText("Regen [mm]").Width(45).TextAlign(TextAlign.Right).Add();
+        col.Field(w => w.WindKPH).HeaderText("Windgeschw. [kmh]").Width(45).TextAlign(TextAlign.Right).Add();
+        col.Field(w => w.GustKPH).HeaderText("Böen [kmh]").Width(45).TextAlign(TextAlign.Right).Add();
+        col.Field(w => w.WindDirection).HeaderText("Windrichtung").Width(45).TextAlign(TextAlign.Right).Add();
+    })
+
+    )
+</div>

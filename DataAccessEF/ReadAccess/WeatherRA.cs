@@ -28,17 +28,20 @@ namespace DataAccessEF.ReadAccess
             StationData result = new StationData();
             if (queryResult.Count > 0)
             {
-                tblWeather weather = queryResult.First<tblWeather>();
+                tblWeather firstEntry = queryResult.First<tblWeather>();
+
+                result.StationId = firstEntry.coreid;
+                result.ParticleUser = firstEntry.prtclUserid;
+
+                result.WeatherReadings = 
+                    queryResult.Select(y => 
+                        new Weather(y.@event, y.publishedAt, y.temperature, y.humidity, y.pressure, y.rainMM, y.windKPH, y.gustKPH, y.windDirection));
+
+                result.ContinuosMetaData = 
+                    queryResult.Select(z => new ContinuosMeta() { PublishedAd = z.publishedAt, ParticleFirmware = z.prtclFwVersion, PowerStatus = z.powerStatus });
             }
 
-            //var navigationItems = queryResult.Select(i => new NavItem(i.Comment, i.ID, i.Label, i.ChildID, (NavItemType)i.TypeID, i.StyleID, i.Term)
-            //{
-            //    ActivityLevel = i.Active,
-            //});
-
-            //return navigationItems;
-
-            throw new NotImplementedException();
+            return result;
         }
 
     }

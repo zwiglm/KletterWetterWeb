@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using AppInterfaces.ReadAccess;
+using DomainKw;
+using DomainKw.Stations;
+using KletterWetter.Models;
 
 namespace KletterWetter.Controllers
 {
@@ -21,9 +24,35 @@ namespace KletterWetter.Controllers
         // GET: WeatherData
         public virtual ActionResult TableData()
         {
+            string stationId = GlobalConst.PROTO_STATION_ID;
+            DateTime tillDate = DateTime.Now;
+            DateTime fromDate = tillDate.AddDays(-14);
+            StationData stationData = _weatherRA.getReadings(fromDate, tillDate, stationId);
+
+            TableStationData tsd = new TableStationData()
+            {
+                WeatherRows = stationData.WeatherReadings
+            };
+
+            ViewBag.WdDataSource = stationData.WeatherReadings.ToList();
             ViewBag.Message = "Wetterdaten hier.";
 
-            return View();
+            return View(tsd);
+        }
+
+        public virtual ActionResult TableDataGrid()
+        {
+            string stationId = GlobalConst.PROTO_STATION_ID;
+            DateTime tillDate = DateTime.Now;
+            DateTime fromDate = tillDate.AddDays(-14);
+            StationData stationData = _weatherRA.getReadings(fromDate, tillDate, stationId);
+
+            TableStationData tsd = new TableStationData()
+            {
+                WeatherRows = stationData.WeatherReadings.ToList()
+            };
+
+            return PartialView(MVC.WeatherData.Views._TdTablePartial, tsd);
         }
     }
 }
