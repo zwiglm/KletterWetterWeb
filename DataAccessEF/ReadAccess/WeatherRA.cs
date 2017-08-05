@@ -17,6 +17,7 @@ namespace DataAccessEF.ReadAccess
 
         }
 
+
         public StationData getReadings(DateTime fromDate, DateTime tillDate, string stationId)
         {
             var query = DBEntities.tblWeather.
@@ -33,16 +34,28 @@ namespace DataAccessEF.ReadAccess
                 result.StationId = firstEntry.coreid;
                 result.ParticleUser = firstEntry.prtclUserid;
 
+                result.WeatherReadingsRaw = 
+                    queryResult.Select(y =>
+                        new WeatherRaw(
+                            y.@event, y.publishedAt, y.temperature, y.humidity, y.pressure, y.rainMM, y.windKPH, y.gustKPH, y.windDirection, y.powerStatus))
+                .ToList();
+
                 result.WeatherReadings = 
                     queryResult.Select(y => 
-                        new Weather(y.@event, y.publishedAt, y.temperature, y.humidity, y.pressure, y.rainMM, y.windKPH, y.gustKPH, y.windDirection));
+                        new Weather(y.@event, y.publishedAt, y.temperature, y.humidity, y.pressure, y.rainMM, y.windKPH, y.gustKPH, y.windDirection))
+                        .ToList();
 
                 result.ContinuosMetaData = 
-                    queryResult.Select(z => new ContinuosMeta() { PublishedAd = z.publishedAt, ParticleFirmware = z.prtclFwVersion, PowerStatus = z.powerStatus });
+                    queryResult.Select(z => new ContinuosMeta() { PublishedAd = z.publishedAt, ParticleFirmware = z.prtclFwVersion, PowerStatus = z.powerStatus }).ToList();
             }
 
             return result;
         }
+
+
+        #region Private
+
+        #endregion
 
     }
 }

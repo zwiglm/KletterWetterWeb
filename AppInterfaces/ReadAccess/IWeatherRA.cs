@@ -9,6 +9,13 @@ namespace AppInterfaces.ReadAccess
 {
     public interface IWeatherRA
     {
-        StationData getReadings(DateTime from, DateTime till, string stationId);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="fromDate"></param>
+        /// <param name="tillDate"></param>
+        /// <param name="stationId"></param>
+        /// <returns></returns>
+        StationData getReadings(DateTime fromDate, DateTime tillDate, string stationId);
     }
 }

@@ -4,40 +4,16 @@
 @{
     ViewBag.Title = "Wetterdaten";
 }
-<h2>@ViewBag.Title.</h2>
+<h2>@ViewBag.Title</h2>
 
 <div>
     @Html.Partial("_TdHeaderPartial")
 </div>
 
 <div>
-    @*@Html.Partial("_TdTablePartial")*@
     @Html.Action(MVC.WeatherData.TableDataGrid())
 </div>
 
-<div>
-    @(Html.EJ().Grid<Weather>("WeatherDataTableIdx")
-
-    .Datasource((IEnumerable<Weather>) ViewBag.WdDataSource)
-
-    .IsResponsive(true)
-    .EnableResponsiveRow(true)
-    .AllowPaging()
-
-    .Columns(col =>
-    {
-        col.Field(w => w.PublishedAt).HeaderText("Datum").Width(100).Add();
-        col.Field(w => w.Temperature).HeaderText("Temperatur").Width(45).TextAlign(TextAlign.Right).Add();
-        col.Field(w => w.Humidity).HeaderText("Rel. Feuchtigkeit").Width(45).TextAlign(TextAlign.Right).Add();
-        col.Field(w => w.PressureKPA).HeaderText("Druck [kPa]").Width(45).TextAlign(TextAlign.Right).Add();
-        col.Field(w => w.RainMM).HeaderText("Regen [mm]").Width(45).TextAlign(TextAlign.Right).Add();
-        col.Field(w => w.WindKPH).HeaderText("Windgeschw. [kmh]").Width(45).TextAlign(TextAlign.Right).Add();
-        col.Field(w => w.GustKPH).HeaderText("Böen [kmh]").Width(45).TextAlign(TextAlign.Right).Add();
-        col.Field(w => w.WindDirection).HeaderText("Windrichtung").Width(45).TextAlign(TextAlign.Right).Add();
-    })
-
-    )
-</div>
 
 
 

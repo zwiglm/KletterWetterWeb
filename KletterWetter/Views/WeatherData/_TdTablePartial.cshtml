@@ -2,13 +2,14 @@
 @using DomainKw.Stations
 
 <div id="WeatherTableSection">
-    @(Html.EJ().Grid<Weather>("WeatherDataTableId")
+    @(Html.EJ().Grid<WeatherRaw>("WeatherDataTableId")
 
     .Datasource(Model.WeatherRows)
 
     .IsResponsive(true)
     .EnableResponsiveRow(true)
     .AllowPaging()
+    .AllowSorting()
 
     .Columns(col =>
     {
@@ -20,6 +21,7 @@
         col.Field(w => w.WindKPH).HeaderText("Windgeschw. [kmh]").Width(45).TextAlign(TextAlign.Right).Add();
         col.Field(w => w.GustKPH).HeaderText("Böen [kmh]").Width(45).TextAlign(TextAlign.Right).Add();
         col.Field(w => w.WindDirection).HeaderText("Windrichtung").Width(45).TextAlign(TextAlign.Right).Add();
+        col.Field(w => w.PowerStatus).HeaderText("Akku [V]").Width(45).Add();
     })
 
     )

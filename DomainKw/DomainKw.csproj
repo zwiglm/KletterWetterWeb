@@ -44,6 +44,7 @@
     <Compile Include="Stations\ContinuosMeta.cs" />
     <Compile Include="Stations\StationData.cs" />
     <Compile Include="Stations\Weather.cs" />
+    <Compile Include="Stations\WeatherRaw.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

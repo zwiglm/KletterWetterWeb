@@ -24,20 +24,10 @@ namespace KletterWetter.Controllers
         // GET: WeatherData
         public virtual ActionResult TableData()
         {
-            string stationId = GlobalConst.PROTO_STATION_ID;
-            DateTime tillDate = DateTime.Now;
-            DateTime fromDate = tillDate.AddDays(-14);
-            StationData stationData = _weatherRA.getReadings(fromDate, tillDate, stationId);
-
-            TableStationData tsd = new TableStationData()
-            {
-                WeatherRows = stationData.WeatherReadings
-            };
-
-            ViewBag.WdDataSource = stationData.WeatherReadings.ToList();
+       
             ViewBag.Message = "Wetterdaten hier.";
 
-            return View(tsd);
+            return View();
         }
 
         public virtual ActionResult TableDataGrid()
@@ -49,7 +39,7 @@ namespace KletterWetter.Controllers
 
             TableStationData tsd = new TableStationData()
             {
-                WeatherRows = stationData.WeatherReadings.ToList()
+                WeatherRows = stationData.WeatherReadingsRaw
             };
 
             return PartialView(MVC.WeatherData.Views._TdTablePartial, tsd);

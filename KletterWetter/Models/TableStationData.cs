@@ -8,6 +8,6 @@ namespace KletterWetter.Models
 {
     public class TableStationData
     {
-        public IEnumerable<Weather> WeatherRows { get; set; }
+        public IEnumerable<WeatherRaw> WeatherRows { get; set; }
     }
 }

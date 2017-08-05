@@ -8,6 +8,7 @@ namespace DomainKw.Stations
 {
     public class StationData
     {
+        public IEnumerable<WeatherRaw> WeatherReadingsRaw { get; set; }
         public IEnumerable<Weather> WeatherReadings { get; set; }
 
         public string StationId { get; set; }
