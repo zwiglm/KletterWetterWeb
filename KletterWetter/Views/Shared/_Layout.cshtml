@@ -25,6 +25,8 @@
                     <li>@Html.ActionLink("Startseite", "Index", "Home")</li>
                     <li>@Html.ActionLink("Info", "About", "Home")</li>
                     <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
+
+                    <li>@Html.ActionLink("Wetterdaten Charts", "ChartData", "WeatherData")</li>
                     @if (Request.IsAuthenticated)
                     {
                         <li>@Html.ActionLink("Daten Tabelle", "TableData", "WeatherData")</li>

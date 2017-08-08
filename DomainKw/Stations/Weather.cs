@@ -8,30 +8,36 @@ namespace DomainKw.Stations
 {
     public class Weather
     {
+
+        protected Weather()
+        {
+        }
+
         public Weather(string pEvent, DateTime publishedAt, 
                        decimal temp, decimal hum, decimal press, decimal rain, decimal wind, decimal gust, decimal direction)
         {
             this.ParticleEvent = pEvent;
             this.PublishedAt = publishedAt;
-            this.Temperature = temp;
-            this.Humidity = hum;
-            this.PressureKPA = press;
-            this.RainMM = rain;
-            this.WindKPH = wind;
-            this.GustKPH = gust;
-            this.WindDirection = direction;
+            this.Temperature = (float)temp;
+            this.Humidity = (float)hum;
+            this.PressureKPA = (float)press;
+            this.RainMM = (float)rain;
+            this.WindKPH = (float)wind;
+            this.GustKPH = (float)gust;
+            this.WindDirection = (float)direction;
         }
 
         public string ParticleEvent { get; set; }  // not used atm
 
         public System.DateTime PublishedAt { get; set; }
         
-        public decimal Temperature { get; set; }
-        public decimal Humidity { get; set; }
-        public decimal PressureKPA { get; set; }
-        public decimal RainMM { get; set; }
-        public decimal WindKPH { get; set; }
-        public decimal GustKPH { get; set; }
-        public decimal WindDirection { get; set; }
+        public float Temperature { get; set; }
+        public float Humidity { get; set; }
+        public float PressureKPA { get; set; }
+        public float RainMM { get; set; }
+        public float WindKPH { get; set; }
+        public float GustKPH { get; set; }
+        public float WindDirection { get; set; }
+
     }
 }

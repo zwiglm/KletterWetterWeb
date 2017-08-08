@@ -1,0 +1,37 @@
+﻿@model KletterWetter.Models.TableStationData
+@using Syncfusion.JavaScript.DataVisualization
+@using DomainKw.Stations
+
+
+@{
+    ViewBag.Title = "Wetterdaten";
+}
+<h2>@ViewBag.Title</h2>
+
+<div>
+    @(Html.EJ().Chart("temp_chart_id")
+            .PrimaryXAxis(axis => axis.LabelFormat("MMM dd, HH:mm").CrosshairLabel(xch => xch.Visible(true)))
+            .Crosshair(ch => ch.Visible(true))
+            .Series(srt =>
+                {
+                    srt.DataSource(Model.PrettyWeatherRows)
+                    .Type(SeriesType.Line)
+                    .XName("PublishedAt").YName("Temperature")
+                    .EmptyPointSettings(e => e.Visible(true).DisplayMode(ChartEmptyPointMode.Gap))
+                    .Add();
+                })
+            .IsResponsive(true)
+    )
+</div>
+<div>
+    @(Html.EJ().Chart("hum_chart_id")
+            .Series(srt =>
+                {
+                    srt.DataSource(Model.PrettyWeatherRows)
+                    .Type(SeriesType.Line)
+                    .XName("PublishedAt").YName("Humidity")
+                    .Add();
+                })
+            .IsResponsive(true)
+    )
+</div>

@@ -822,6 +822,7 @@
     </None>
     <Content Include="Views\WeatherData\_TdHeaderPartial.cshtml" />
     <Content Include="Views\WeatherData\_TdTablePartial.cshtml" />
+    <Content Include="Views\WeatherData\ChartData.cshtml" />
     <None Include="Web.MaZ.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

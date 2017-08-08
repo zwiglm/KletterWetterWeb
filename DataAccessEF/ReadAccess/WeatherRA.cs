@@ -22,6 +22,7 @@ namespace DataAccessEF.ReadAccess
         {
             var query = DBEntities.tblWeather.
                             Where(w => w.coreid == stationId && (w.publishedAt >= fromDate && w.publishedAt <= tillDate)).
+                            OrderBy(o => o.publishedAt).
                             Select(w => w);
 
             var queryResult = query.ToList();

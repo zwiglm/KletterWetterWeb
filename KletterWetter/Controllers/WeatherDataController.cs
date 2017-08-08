@@ -10,18 +10,23 @@ using KletterWetter.Models;
 
 namespace KletterWetter.Controllers
 {
-    [Authorize]
+    
     public partial class WeatherDataController : Controller
     {
         private IWeatherRA _weatherRA;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="weatherRA"></param>
         public WeatherDataController(IWeatherRA weatherRA)
         {
             _weatherRA = weatherRA;
         }
 
 
-        // GET: WeatherData
+        // GET: WeatherData for Table presentation
+        [Authorize]
         public virtual ActionResult TableData()
         {
        
@@ -37,12 +42,26 @@ namespace KletterWetter.Controllers
             DateTime fromDate = tillDate.AddDays(-14);
             StationData stationData = _weatherRA.getReadings(fromDate, tillDate, stationId);
 
-            TableStationData tsd = new TableStationData()
-            {
-                WeatherRows = stationData.WeatherReadingsRaw
-            };
+            TableStationData tsd = new TableStationData(fromDate, tillDate, stationData.WeatherReadingsRaw);
 
             return PartialView(MVC.WeatherData.Views._TdTablePartial, tsd);
+        }
+
+
+        // GET: WeatherData for Demo-Charts presentation
+        public virtual ActionResult ChartData()
+        {
+            ViewBag.Message = "Wetterdaten hier.";
+
+            string stationId = GlobalConst.PROTO_STATION_ID;
+            DateTime tillDate = DateTime.Now;
+            DateTime fromDate = tillDate.AddDays(-7);
+            StationData stationData = _weatherRA.getReadings(fromDate, tillDate, stationId);
+
+            TableStationData tsd = new TableStationData(fromDate, tillDate, stationData.WeatherReadingsRaw);
+
+
+            return View(MVC.WeatherData.Views.ChartData, tsd);
         }
     }
 }

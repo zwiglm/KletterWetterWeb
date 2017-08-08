@@ -74,6 +74,7 @@ namespace KletterWetter.Controllers
         {
             public readonly string TableData = "TableData";
             public readonly string TableDataGrid = "TableDataGrid";
+            public readonly string ChartData = "ChartData";
         }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -81,6 +82,7 @@ namespace KletterWetter.Controllers
         {
             public const string TableData = "TableData";
             public const string TableDataGrid = "TableDataGrid";
+            public const string ChartData = "ChartData";
         }
 
 
@@ -96,10 +98,12 @@ namespace KletterWetter.Controllers
             {
                 public readonly string _TdHeaderPartial = "_TdHeaderPartial";
                 public readonly string _TdTablePartial = "_TdTablePartial";
+                public readonly string ChartData = "ChartData";
                 public readonly string TableData = "TableData";
             }
             public readonly string _TdHeaderPartial = "~/Views/WeatherData/_TdHeaderPartial.cshtml";
             public readonly string _TdTablePartial = "~/Views/WeatherData/_TdTablePartial.cshtml";
+            public readonly string ChartData = "~/Views/WeatherData/ChartData.cshtml";
             public readonly string TableData = "~/Views/WeatherData/TableData.cshtml";
         }
     }
@@ -128,6 +132,17 @@ namespace KletterWetter.Controllers
         {
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.TableDataGrid);
             TableDataGridOverride(callInfo);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void ChartDataOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult ChartData()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.ChartData);
+            ChartDataOverride(callInfo);
             return callInfo;
         }
 
