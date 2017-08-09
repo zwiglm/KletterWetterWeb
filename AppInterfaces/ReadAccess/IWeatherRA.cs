@@ -16,6 +16,15 @@ namespace AppInterfaces.ReadAccess
         /// <param name="tillDate"></param>
         /// <param name="stationId"></param>
         /// <returns></returns>
-        StationData getReadings(DateTime fromDate, DateTime tillDate, string stationId);
+        StationData getReadingsFullStation(DateTime fromDate, DateTime tillDate, string stationId);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="fromDate"></param>
+        /// <param name="tillDate"></param>
+        /// <param name="stationId"></param>
+        /// <returns></returns>
+        IList<WeatherRaw> getReadingsWeatherRaw(DateTime fromDate, DateTime tillDate, string stationId);
     }
 }

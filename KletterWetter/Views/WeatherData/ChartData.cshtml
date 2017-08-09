@@ -10,14 +10,27 @@
 
 <div>
     @(Html.EJ().Chart("temp_chart_id")
-            .PrimaryXAxis(axis => axis.LabelFormat("MMM dd, HH:mm").CrosshairLabel(xch => xch.Visible(true)))
+            .Title(title => title.Text("Temperatur Verlauf letzte xy").TextAlignment(Syncfusion.JavaScript.DataVisualization.TextAlignment.Near))
+            .PrimaryXAxis(axis => axis.LabelFormat("MMM dd, HH:mm").CrosshairLabel(xch => xch.Visible(true)).
+                Range(rng => rng.Interval(12)).IntervalType(ChartIntervalType.Hours))
+            .PrimaryYAxis(pry => pry.CrosshairLabel(csl => csl.Visible(true)).Title(ayt => ayt.Text("Temp in C°")))
             .Crosshair(ch => ch.Visible(true))
-            .Series(srt =>
+            .Series(srt1 =>
                 {
-                    srt.DataSource(Model.PrettyWeatherRows)
+                    srt1.DataSource(Model.WeatherRows)
+                    .Name("Hauptverlauf")
                     .Type(SeriesType.Line)
                     .XName("PublishedAt").YName("Temperature")
-                    .EmptyPointSettings(e => e.Visible(true).DisplayMode(ChartEmptyPointMode.Gap))
+                    //.EmptyPointSettings(e => e.Visible(true).DisplayMode(ChartEmptyPointMode.Gap))
+                    .Add();
+                })
+            .Series(srt2 =>
+                {
+                    srt2.DataSource(Model.WeatherRowsBackdate)
+                    .Name("Ein Tag zurück")
+                    .Type(SeriesType.Line)
+                    .XName("PublishedAt").YName("Temperature")
+                    //.EmptyPointSettings(e => e.Visible(true).DisplayMode(ChartEmptyPointMode.Gap))
                     .Add();
                 })
             .IsResponsive(true)
@@ -25,9 +38,14 @@
 </div>
 <div>
     @(Html.EJ().Chart("hum_chart_id")
+            .Title(title => title.Text("Verlauf Relative Feuchtigkeit").TextAlignment(Syncfusion.JavaScript.DataVisualization.TextAlignment.Near))
+            .PrimaryXAxis(axis => axis.LabelFormat("MMM dd, HH:mm").CrosshairLabel(xch => xch.Visible(true)).
+                        Range(rng => rng.Interval(12)).IntervalType(ChartIntervalType.Hours))
+            .PrimaryYAxis(pry => pry.CrosshairLabel(csl => csl.Visible(true)).Title(ayt => ayt.Text("Rel. Feuchtigkeit in %")))
+            .Crosshair(ch => ch.Visible(true))
             .Series(srt =>
                 {
-                    srt.DataSource(Model.PrettyWeatherRows)
+                    srt.DataSource(Model.WeatherRows)
                     .Type(SeriesType.Line)
                     .XName("PublishedAt").YName("Humidity")
                     .Add();

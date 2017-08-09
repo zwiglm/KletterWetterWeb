@@ -18,7 +18,7 @@ namespace DataAccessEF.ReadAccess
         }
 
 
-        public StationData getReadings(DateTime fromDate, DateTime tillDate, string stationId)
+        public StationData getReadingsFullStation(DateTime fromDate, DateTime tillDate, string stationId)
         {
             var query = DBEntities.tblWeather.
                             Where(w => w.coreid == stationId && (w.publishedAt >= fromDate && w.publishedAt <= tillDate)).
@@ -51,6 +51,20 @@ namespace DataAccessEF.ReadAccess
             }
 
             return result;
+        }
+
+        public IList<WeatherRaw> getReadingsWeatherRaw(DateTime fromDate, DateTime tillDate, string stationId)
+        {
+            var query = DBEntities.tblWeather.
+                Where(w => w.coreid == stationId && (w.publishedAt >= fromDate && w.publishedAt <= tillDate)).
+                OrderBy(o => o.publishedAt).
+                Select(w => w);
+
+            var queryResult = query.ToList();
+            return queryResult.Select(y =>
+                        new WeatherRaw(
+                            y.@event, y.publishedAt, y.temperature, y.humidity, y.pressure, y.rainMM, y.windKPH, y.gustKPH, y.windDirection, y.powerStatus))
+                .ToList();
         }
 
 

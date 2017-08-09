@@ -12,45 +12,63 @@ namespace KletterWetter.Models
 
         public DateTime FromDate { get; set; }
         public DateTime TillDate { get; set; }
+
         public IList<WeatherRaw> WeatherRows { get; private set; }
-        public IList<WeatherRaw> PrettyWeatherRows { get; private set; }
+        public IList<WeatherRaw> WeatherRowsBackdate { get; private set; }
+
 
         public TableStationData(DateTime fromDate, DateTime tillDate, IList<WeatherRaw> weathers)
         {
             this.FromDate = fromDate;
             this.TillDate = tillDate;
+            
             this.WeatherRows = weathers;
-
-            this.prettyWeatherRows();
+            this.setBackWrBackdateFromDb();
         }
 
 
         #region Private
 
-        private void prettyWeatherRows()
+        private void setBackWrBackdateFromDb()
+        {
+            DateTime checkLast = this.WeatherRows.Last().PublishedAt;
+
+            IList<WeatherRaw> result = new List<WeatherRaw>();
+            foreach (WeatherRaw item in this.WeatherRows)
+            {
+                WeatherRaw newEntry = WeatherRaw.DeepCopy(item);
+                DateTime newDate = item.PublishedAt.AddHours(GlobalConst.CHART_DATA_OVERLAY_HRS);
+                newEntry.PublishedAt = newDate;
+
+                if (newDate <= checkLast)
+                    result.Add(newEntry);
+            }
+            this.WeatherRowsBackdate = result;
+        }
+
+        private IList<WeatherRaw> prettyWeatherRows(IList<WeatherRaw> withGaps)
         {
             List<WeatherRaw> result = new List<WeatherRaw>();
-            IList<WeatherRaw> ordered = this.WeatherRows;
 
             DateTime dtKeep = DateTime.Now;
-            for (int i = 0; i < ordered.Count; i++)
+            for (int i = 0; i < withGaps.Count; i++)
             {
-                WeatherRaw entry = ordered[i];
+                WeatherRaw entry = withGaps[i];
                 result.Add(entry);
 
-                dtKeep = entry.PublishedAt.AddMinutes(GlobalConst.PRETTY_FILL_TIME_MIN);
-                while (i < (ordered.Count - 1) && dtKeep < ordered[i + 1].PublishedAt)
+                dtKeep = entry.PublishedAt.AddSeconds(GlobalConst.PRETTY_FILL_TIME_SECS);
+                while ((i < (withGaps.Count - 1)) && (dtKeep < withGaps[i + 1].PublishedAt))
                 {
-                    WeatherRaw addEmpty = WeatherRaw.Empty;
+                    WeatherRaw addEmpty = new WeatherRaw();
                     addEmpty.PublishedAt = dtKeep;
                     result.Add(addEmpty);
 
-                    dtKeep = addEmpty.PublishedAt.AddMinutes(GlobalConst.PRETTY_FILL_TIME_MIN);
+                    dtKeep = addEmpty.PublishedAt.AddSeconds(GlobalConst.PRETTY_FILL_TIME_SECS);
                 }
                 i++;
             }
 
-            this.PrettyWeatherRows = result;
+            return result;
         }
 
         #endregion

@@ -1,24 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DomainKw.Stations
 {
+    [Serializable]
     public class WeatherRaw : Weather
     {
 
-        private WeatherRaw()
+        public WeatherRaw()
+            : base()
         {
-            ParticleEvent = String.Empty;
-            PublishedAt = DateTime.MinValue;
-            Temperature = float.NaN;
-            Humidity = float.NaN;
-            RainMM = float.NaN;
-            WindKPH = float.NaN;
-            GustKPH = float.NaN;
-            WindDirection = float.NaN;
             PowerStatus = float.NaN;
         }
 
@@ -31,8 +27,19 @@ namespace DomainKw.Stations
             this.PowerStatus = (float)powerStat;
         }
 
-        public static WeatherRaw Empty { get { return new WeatherRaw(); } }
         public float PowerStatus { get; set; }
+
+
+        public static T DeepCopy<T>(T other)
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
+                BinaryFormatter formatter = new BinaryFormatter();
+                formatter.Serialize(ms, other);
+                ms.Position = 0;
+                return (T)formatter.Deserialize(ms);
+            }
+        }
 
     }
 }

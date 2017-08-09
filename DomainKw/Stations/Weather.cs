@@ -6,11 +6,20 @@ using System.Threading.Tasks;
 
 namespace DomainKw.Stations
 {
+    [Serializable]
     public class Weather
     {
 
         protected Weather()
         {
+            ParticleEvent = String.Empty;
+            PublishedAt = DateTime.MinValue;
+            Temperature = float.NaN;
+            Humidity = float.NaN;
+            RainMM = float.NaN;
+            WindKPH = float.NaN;
+            GustKPH = float.NaN;
+            WindDirection = float.NaN;
         }
 
         public Weather(string pEvent, DateTime publishedAt, 

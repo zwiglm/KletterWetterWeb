@@ -13,7 +13,10 @@ namespace KletterWetter.Controllers
     
     public partial class WeatherDataController : Controller
     {
+        private static int DAYS_BACK_FOR_TABLE = -14;
+        private static int DAYS_BACK_FOR_CHARTS = -7;
         private IWeatherRA _weatherRA;
+
 
         /// <summary>
         /// 
@@ -31,17 +34,15 @@ namespace KletterWetter.Controllers
         {
        
             ViewBag.Message = "Wetterdaten hier.";
-
             return View();
         }
 
         public virtual ActionResult TableDataGrid()
         {
-            string stationId = GlobalConst.PROTO_STATION_ID;
             DateTime tillDate = DateTime.Now;
-            DateTime fromDate = tillDate.AddDays(-14);
-            StationData stationData = _weatherRA.getReadings(fromDate, tillDate, stationId);
+            DateTime fromDate = tillDate.AddDays(WeatherDataController.DAYS_BACK_FOR_TABLE);
 
+            StationData stationData = _weatherRA.getReadingsFullStation(fromDate, tillDate, GlobalConst.PROTO_STATION_ID);
             TableStationData tsd = new TableStationData(fromDate, tillDate, stationData.WeatherReadingsRaw);
 
             return PartialView(MVC.WeatherData.Views._TdTablePartial, tsd);
@@ -53,13 +54,11 @@ namespace KletterWetter.Controllers
         {
             ViewBag.Message = "Wetterdaten hier.";
 
-            string stationId = GlobalConst.PROTO_STATION_ID;
             DateTime tillDate = DateTime.Now;
-            DateTime fromDate = tillDate.AddDays(-7);
-            StationData stationData = _weatherRA.getReadings(fromDate, tillDate, stationId);
+            DateTime fromDate = tillDate.AddDays(WeatherDataController.DAYS_BACK_FOR_CHARTS);
 
+            StationData stationData = _weatherRA.getReadingsFullStation(fromDate, tillDate, GlobalConst.PROTO_STATION_ID);
             TableStationData tsd = new TableStationData(fromDate, tillDate, stationData.WeatherReadingsRaw);
-
 
             return View(MVC.WeatherData.Views.ChartData, tsd);
         }
